@@ -20,8 +20,8 @@ function Nav() {
     }
     return (
         <header>
-            <h2>
-                <a href="/">
+            <h2 className="flex-row px-1">
+                <a data-testid="link" href="/">
                     <span role="img" aria-label="camera"> 📸</span> Oh Snap!
                 </a>
             </h2>
@@ -29,7 +29,7 @@ function Nav() {
 
                 <ul className="flex-row">
                     <li className="mx-2">
-                        <a href="#about">
+                        <a data-testid="about" href="#about">
                             About me
                         </a>
                     </li>

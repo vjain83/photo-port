@@ -19,16 +19,16 @@ function ContactForm() {
             // isValid conditional statement
             if (!isValid) {
                 setErrorMessage('Your email is invalid.');
-            } else {
-
-                if (!e.target.value.length) {
-                    setErrorMessage(`${e.target.name} is required.`);
-                } else {
-                    setErrorMessage('');
-                }
-
+                console.log('errorMessage', errorMessage);
             }
-            console.log('errorMessage', errorMessage);
+        } else {
+
+            if (!e.target.value.length) {
+                setErrorMessage(`${e.target.name} is required.`);
+            } else {
+                setErrorMessage('');
+            }
+
         }
         // isValid conditional statement
 
@@ -40,17 +40,18 @@ function ContactForm() {
     }
     console.log(formState);
 
-
-    function handleSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formState);
-    }
+        if (!errorMessage) {
+            console.log('Submit Form', formState);
+        }
+    };
 
     return (
 
         <section>
             <h1>Contact me</h1>
-            <form id="contact-form" onClick={handleChange}>
+            <form id="contact-form" onClick={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name:</label>
                     <input type="text" onBlur={handleChange} name="name" defaultValue={name} />
